@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { QUERIES } from '../../constants';
 
 const SecondaryStory = ({ id, title, image, location, abstract }) => {
   return (
@@ -7,7 +8,9 @@ const SecondaryStory = ({ id, title, image, location, abstract }) => {
       <Wrapper>
         <Image alt={image.alt} src={image.src} />
         <Heading>{title}</Heading>
-        <Abstract>{abstract}</Abstract>
+        <AbstractWrapper>
+          <Abstract>{abstract}</Abstract>
+        </AbstractWrapper>
       </Wrapper>
     </a>
   );
@@ -45,6 +48,23 @@ const Abstract = styled.p`
   grid-area: abstract;
   font-size: 1rem;
   white-space: pre-wrap;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+
+  @media ${QUERIES.tabletAndUp} {
+    -webkit-line-clamp: 16;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    -webkit-line-clamp: 10;
+  }
+`;
+
+const AbstractWrapper = styled.div`
+  grid-area: abstract;
 `;
 
 export default SecondaryStory;
