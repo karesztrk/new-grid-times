@@ -24,6 +24,15 @@ const Wrapper = styled.article`
   gap: 4px 16px;
   grid-template-columns: 120px 1fr;
   color: var(--color-gray-900);
+
+  @media ${QUERIES.tabletOnly} {
+    grid-template-areas: 
+      'image'
+      'heading'
+      'abstract'
+    ;
+    grid-template-columns: 1fr;
+  }
 `;
 
 const Image = styled.img`
@@ -53,14 +62,6 @@ const Abstract = styled.p`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
-
-  @media ${QUERIES.tabletAndUp} {
-    -webkit-line-clamp: 16;
-  }
-
-  @media ${QUERIES.laptopAndUp} {
-    -webkit-line-clamp: 10;
-  }
 `;
 
 const AbstractWrapper = styled.div`
