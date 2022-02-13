@@ -58,12 +58,12 @@ const Wrapper = styled.div`
 
   @media ${QUERIES.laptopAndUp} {
     gap: 0;
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: 1fr minmax(0px, 1fr);
   }
 `;
 
 const MarketsSection = styled.section`
-  @media ${QUERIES.desktopAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     padding-right: 16px;
     margin-right: 16px;
     border-right: 1px solid var(--color-gray-300);
@@ -91,7 +91,9 @@ const SportsStories = styled.div`
 `;
 
 const SportStoryWrapper = styled.div`
-  min-width: 220px;
+  @media ${QUERIES.tabletAndUp} {
+    min-width: 220px;
+  }
 `;
 
 export default SpecialtyStoryGrid;
